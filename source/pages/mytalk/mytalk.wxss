@@ -1,0 +1,5 @@
+/* pages/mytalk/mytalk.wxss */
+.icon_null{
+  width: 200rpx;
+  height: 200rpx;
+}

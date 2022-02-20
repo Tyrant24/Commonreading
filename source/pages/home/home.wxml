@@ -1,0 +1,100 @@
+<view class='Top  '>
+  <view class='padding-20'>
+    <view class=' flex-row '>
+      <navigator url='/pages/search/search' class='search flex-1 flex-row flex-center padding-10 '>
+        <view style='width:20rpx;'></view>
+        <image class='icon-20' src='{{uploadpath}}resource/{{res.search_icon}}' ></image>
+        <view class='h5 txt-gray'>搜索你想读的文章</view>
+        <view class=''></view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class='flex-row flex-center top_title'>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcontact'>
+    <view class=' text-center  txt-gray {{ctt==1?"to-white":"" }} top   txt-bold' bindtap='bindcontact'>热门诗词</view>
+    <view wx:if='{{ctt!=1}}' style='height:4rpx;width:120rpx;' class=''></view>
+    <view wx:if='{{ctt==1}}' style='height:4rpx;width:120rpx;' class='bg-primary'></view>
+  </view>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted'>
+    <view class=' text-center  txt-gray {{ctt==2?"to-white":""}} top   txt-bold' bindtap='bindwaitcompleted'>每日必读</view>
+    <view wx:if='{{ctt!=2}}' style='height:4rpx;width:120rpx;' class=''></view>
+    <view wx:if='{{ctt==2}}' style='height:4rpx;width:120rpx;' class='bg-primary'></view>
+  </view>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcompleted'>
+    <view class=' text-center  txt-gray {{ctt==3?"to-white":""}} top   txt-bold' bindtap='bindcompleted'>最新录入</view>
+    <view wx:if='{{ctt!=3}}' style='height:4rpx;width:120rpx;' class=''></view>
+    <view wx:if='{{ctt==3}}' style='height:4rpx;width:120rpx;' class='bg-primary'></view>
+  </view>
+
+</view>
+
+<view style='height:180rpx;'></view>
+
+<view class='bnk'>
+  <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:320rpx;'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto'  id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;'></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+<view class=''>
+  <image class='bg_img' src='{{uploadpath}}resource/{{res.bg_2}}'></image>
+</view>
+
+
+<view wx:if='{{ctt==1}}' wx:for='{{booklist}}' wx:for-index='idx' wx:key='k'>
+
+  <view bindtap='todetails' id='{{item.id}}' class='padding-20 {{idx!=0?"border-t":""}}' style=''>
+    <view class='margin-left-10'>
+      <view class='txt-black txt-bold'>{{item.book_name}}</view>
+
+      <view class='flex-row flex-center  margin-top-5'>
+        <view class='flex-1  h5'>作者：{{item.author}}</view>
+        <view class='flex-1  h5  text-right'>朗读者：{{item.bcount}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<view wx:if='{{ctt==2}}' wx:for='{{everydaylist}}' wx:for-index='idx' wx:key='k'>
+
+  <view bindtap='todetails' id='{{item.id}}' class='padding-20 {{idx!=0?"border-t":""}}' style=''>
+    <view class='margin-left-10'>
+      <view class='txt-black txt-bold'>{{item.book_name}}</view>
+
+      <view class='flex-row flex-center  margin-top-5'>
+        <view class='flex-1  h5'>作者：{{item.author}}</view>
+        <view class='flex-1  h5  text-right'>朗读：{{item.bcount}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view wx:if='{{ctt==3}}' wx:for='{{newlist}}' wx:for-index='idx' wx:key='k'>
+  <view bindtap='todetails' id='{{item.id}}' class='padding-20 {{idx!=0?"border-t":""}}' style=''>
+    <view class='margin-left-10'>
+      <view class='txt-black txt-bold'>{{item.book_name}}</view>
+      <view class='flex-row flex-center  margin-top-5'>
+        <view class='flex-1  h5'>作者：{{item.author}}</view>
+        <view class='flex-1  h5  text-right'>朗读：{{item.bcount}}</view>
+      </view>
+    </view>
+  </view>
+</view>

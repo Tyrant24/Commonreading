@@ -1,0 +1,31 @@
+/* pages/bookshelf/bookshelf.wxss */
+Page{
+  background: #E8E8E8;
+}
+.bg_img{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  bottom: 0;
+  z-index: -1;
+}
+.search{
+  width:100%;
+  border-radius: 7rpx;
+  background-color: white;
+}
+.all{
+  padding-left:20rpx;
+}
+.bg{
+  background: #ABDFC6;
+}
+.backtotop{
+  position: fixed;
+  right:30rpx;
+  bottom: 40rpx;
+}
+.img{
+  opacity: 0.8;
+}
